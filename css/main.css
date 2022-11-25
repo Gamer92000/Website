@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Roboto+Flex:opsz,wght@8..144,200&display=swap');
+
+body, html {
+	position: relative;
+	width: 100%;
+	min-height: 300px;
+	height: 100%;
+	
+	border: 0;
+	margin: 0;
+	padding: 0;
+
+	font-family: 'Roboto Flex', sans-serif;
+	font-weight: 200;
+	font-size: 13px;
+
+	background-color: #4f4f4f;
+	color: #ff9900;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#title {
+	font-size: 64px;
+	font-weight: 100;
+	min-height: 180px;
+	height: calc(50vh - 30px);
+	display: flex;
+	align-items: center;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-variant: small-caps;
+}
+
+#links {
+	margin-bottom: 5rem;
+	display: flex;
+}
+
+#links > a {
+	margin: 0px 30px;
+	width: 60px;
+	height: 60px;
+}
+
+@property --lightness {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: false;
+}
+
+#links > a > .icon {
+	--hue: 36;
+	--saturation: 100%;
+	--lightness: 100%;
+	--custom-color: hsl(var(--hue), var(--saturation), var(--lightness));
+
+	fill: var(--custom-color);
+	padding: 8px;
+	height: 40px;
+	width: 40px;
+	position: relative;
+	border-radius: 50%;
+	border: var(--custom-color) solid 1px;
+}
+
+#links > a > .icon:hover {
+	--lightness: 50%;
+	transition: --lightness .2s;
+}
+
+.footer {
+	margin-top: auto;
+}
+
+#datenschutz {
+	position: relative;
+	max-width: 720px;
+
+	padding: 1rem;
+	box-sizing: border-box;
+
+	text-align: justify;
+
+	font-weight: inherit;
+}
+
+#datenschutz:has(input[type="checkbox"]:checked) {
+	margin-top: 1rem;
+	background-color: #676767;
+}
+
+#datenschutz input[type="checkbox"] {
+	display: none;
+}
+
+#datenschutz label {
+	position: relative;
+  display: block;
+  cursor: pointer;
+	text-align: center;
+}
+
+#datenschutz div {
+  max-height: 0;
+  overflow: hidden;
+}
+
+#datenschutz input[type="checkbox"]:checked ~ span ~ div {
+  max-height: inherit;
+}
+
+@media (min-width: 651px) and (max-width: 1000px){
+	#links > a {
+		margin: 0px 15px;
+	}
+}
+
+@media (max-width: 650px){
+	#title {
+		top: 10%;
+		white-space: nowrap;
+	}
+
+	#links {
+		flex-direction: column;
+	}
+	
+	#links > a {
+		margin: 20px 0;
+	}
+}
